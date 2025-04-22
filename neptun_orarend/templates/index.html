@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órarend</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 9px;
+            text-align: left;
+            vertical-align: top;
+            height: 50px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Órarend</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for fejlec in tabla[0] %}
+                <th>{{ fejlec }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for sor in tabla[1:] %}
+            <tr>
+                {% for cella in sor %}
+                <td>{{ cella|safe }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
